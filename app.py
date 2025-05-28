@@ -14,7 +14,7 @@ else:
 st.set_page_config(page_title="Resume Skill Score Checker", layout="wide")
 st.title("📄 Resume Skill Score Checker")
 
-st.markdown("Upload a resume and get a skill match **score out of 10** based on the required skills you provide.")
+st.markdown("Upload a resume and get a skill match **(Score out of 100)** based on the required skills you provide.")
 
 skills_required = st.text_area("🧠 Enter Required Skills (comma-separated or list format)")
 
