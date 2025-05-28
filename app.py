@@ -52,8 +52,6 @@ import streamlit as st
 # from checker import analyze_resume
 
 # Set OpenAI API key
-os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
-openai_key = os.getenv("OPENAI_API_KEY")
 openai_api_key = st.secrets.get("OPENAI_API_KEY")
 
 st.set_page_config(page_title="Resume Skill Score Checker", layout="wide")
