@@ -3,3 +3,7 @@ python-docx
 PyMuPDF
 langchain
 openai
+langchain_community
+langchain_openai
+langchain_core
+pypdf
