@@ -53,6 +53,10 @@ import streamlit as st
 
 # Set OpenAI API key
 openai_api_key = st.secrets.get("OPENAI_API_KEY")
+if openai_api_key:
+    os.environ["OPENAI_API_KEY"] = openai_api_key
+else:
+    raise ValueError("OPENAI_API_KEY not found in Streamlit secrets.")
 
 st.set_page_config(page_title="Resume Skill Score Checker", layout="wide")
 st.title("📄 Resume Skill Score Checker")
