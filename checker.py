@@ -5,7 +5,7 @@ from langchain.prompts import PromptTemplate
 
 def analyze_resume(text, skills_prompt, openai_api_key):
     try:
-        llm = ChatOpenAI(openai_api_key=openai_api_key, temperature=0, model="gpt-4o")
+        llm = ChatOpenAI(openai_api_key=openai_api_key, temperature=0, model="gpt-3.5-turbo")
         prompt = PromptTemplate.from_template(
             """You are a resume screening assistant.
 Given the following resume and a list of required skills, evaluate how well the resume matches the skills.
