@@ -1,4 +1,5 @@
-docx
-PyMuPDF
-io
+streamlit
+openai
 langchain
+PyMuPDF
+python-docx
