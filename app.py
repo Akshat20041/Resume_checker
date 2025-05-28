@@ -1,55 +1,8 @@
-# resume_parser.py
-
-import fitz  # PyMuPDF
-import docx
-import io
-
-def extract_text_from_pdf(uploaded_file):
-    try:
-        file_bytes = uploaded_file.read()
-        doc = fitz.open(stream=file_bytes, filetype="pdf")
-        text = ""
-        for page in doc:
-            text += page.get_text()
-        return text
-    except Exception as e:
-        return f"Error reading PDF: {e}"
-
-def extract_text_from_docx(uploaded_file):
-    try:
-        doc = docx.Document(uploaded_file)
-        return "\n".join([para.text for para in doc.paragraphs])
-    except Exception as e:
-        return f"Error reading DOCX: {e}"
-
-# checker.py
-
-from langchain.chat_models import ChatOpenAI
-from langchain.prompts import PromptTemplate
-
-def analyze_resume(text, skills_prompt, openai_api_key):
-    try:
-        llm = ChatOpenAI(openai_api_key=openai_api_key, temperature=0, model="gpt-4o")
-        prompt = PromptTemplate.from_template(
-            """You are a resume screening assistant.
-Given the following resume and a list of required skills, evaluate how well the resume matches the skills.
-Give the percentage of match (0-100%) for each skill and a brief explanation.
-Resume:
-{text}
-Required Skills:
-{skills}
-Your Output: It should contain the name of the resume and then it's skills and % matched.
-"""
-        )
-        formatted_prompt = prompt.format(text=text, skills=skills_prompt)
-        return llm.predict(formatted_prompt)
-    except Exception as e:
-        return f"Error analyzing resume: {e}"
 # app.py
 import os
 import streamlit as st
-# from resume_parser import extract_text_from_pdf, extract_text_from_docx
-# from checker import analyze_resume
+from resume_parser import extract_text_from_pdf, extract_text_from_docx
+from checker import analyze_resume
 
 # Set OpenAI API key
 openai_api_key = st.secrets.get("OPENAI_API_KEY")
