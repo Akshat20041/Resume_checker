@@ -1,5 +1,0 @@
-streamlit
-openai
-langchain
-PyMuPDF
-python-docx
