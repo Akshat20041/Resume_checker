@@ -1,0 +1,4 @@
+docx
+PyMuPDF
+io
+langchain
