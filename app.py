@@ -53,7 +53,13 @@ import streamlit as st
 
 # Set OpenAI API key
 os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
-openai_api_key = os.getenv("OPENAI_API_KEY")
+openai_key = os.getenv("OPENAI_API_KEY")
+if openai_key:
+    os.environ["OPENAI_API_KEY"] = openai_key
+else:
+    st.error("OPENAI_API_KEY not found. Please set it in the environment variables.")
+    st.stop()
+
 
 st.set_page_config(page_title="Resume Skill Score Checker", layout="wide")
 st.title("📄 Resume Skill Score Checker")
