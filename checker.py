@@ -1,7 +1,7 @@
 # checker.py
 
 from langchain.chat_models import ChatOpenAI
-from langchain.prompts import PromptTemplate
+from langchain.core.prompts import PromptTemplate
 
 def analyze_resume(text, skills_prompt, openai_api_key):
     try:
