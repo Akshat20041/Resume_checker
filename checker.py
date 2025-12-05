@@ -9,7 +9,8 @@ def analyze_resume(text, skills_prompt, openai_api_key):
             api_key=openai_api_key,
             model="gpt-4.1-mini",
             temperature=0
-        ) prompt = PromptTemplate.from_template(
+        ) 
+        prompt = PromptTemplate.from_template(
             """You are a resume screening assistant.
 Given the following resume and a list of required skills, evaluate how well the resume matches the skills.
 Give the percentage of match (0-100%) for each skill and a brief explanation.
