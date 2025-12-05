@@ -1,9 +1,16 @@
-streamlit
-python-docx
-PyMuPDF
-langchain
-openai
-langchain_community
-langchain_openai
-langchain_core
-pypdf
+streamlit==1.31.0
+python-docx==0.8.11
+pymupdf==1.23.8
+
+# LangChain pinned to version that supports ChatOpenAI import
+langchain==0.0.350
+langchain-community==0.0.28
+
+# openai package (for non-LC usage)
+openai==1.12.0
+
+# Core LC dependencies automatically match the pinned version, no need to include:
+# langchain_openai
+# langchain_core
+
+pypdf==3.17.4
